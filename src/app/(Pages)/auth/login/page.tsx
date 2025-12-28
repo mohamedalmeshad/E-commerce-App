@@ -54,7 +54,7 @@ export default function Login() {
   }
 
   if (searchParams.get('error') == "CredentialsSignin") {
-    if (!error) setError("Invalid identity credentials detected.")
+    if (!error) setError("Invalid Email Or Password.")
   }
   useEffect(() => {
     if (searchParams.get("reason") === "unauthorized") {
