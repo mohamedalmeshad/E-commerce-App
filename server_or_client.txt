@@ -1,0 +1,9 @@
+all orders          ==> server
+brands              ==> server
+specific brand      ==> server
+categories          ==> server
+specific category   ==> server
+products            ==> server
+specific product    ==> server
+cart                ==> client
+all authentication  ==> client
