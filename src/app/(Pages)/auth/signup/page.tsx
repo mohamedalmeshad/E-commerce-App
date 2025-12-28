@@ -51,6 +51,8 @@ export default function Signup() {
       if (resData.message === "success") {
         setIsEmailCreated(true);
         setError(null);
+      } else if (resData.statusMsg) { 
+        setError(resData.message)
       }
     } catch (err) {
       setError((err as Error).message || "Identity registration failed.")
