@@ -35,7 +35,7 @@ import { cn } from '@/lib/utils'
 export default function Navbar() {
     const { cartData } = useContext(CartContext)
     const { wishlistData } = useContext(WishlistContext);
-    const { data: session, status } = useSession();    
+    const { data: session, status } = useSession();
     return (
         <nav className='sticky top-0 inset-x-0 z-50 transition-all duration-300 border-b border-primary/5 bg-white/70 backdrop-blur-xl supports-backdrop-filter:bg-white/60'>
             <div className="container mx-auto py-4 px-2 sm:px-6 lg:px-8">

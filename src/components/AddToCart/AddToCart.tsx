@@ -15,23 +15,22 @@ export default function AddToCart({ productId }: { productId: string }) {
     const { setCartData } = useContext(CartContext);
     const [isLoading, setisLoading] = useState(false);
     async function addProductToCart() {
-        if (session.status == 'authenticated') {
+        if (session.status === 'authenticated') {
             try {
                 setisLoading(true);
                 const data = await addToCartAction(productId);
-                console.log(session);
-
                 if (data.status == 'success') {
                     toast.success(data.message);
                     setCartData(data)
                 }
-                setisLoading(false)
-                console.log(data);
             } catch (err) {
                 console.log(err);
-                toast.error("You need to sign in first")
-                navigate.push('/auth/login');
+                toast.error("Something went wrong");
+            } finally {
+                setisLoading(false)
             }
+        } else {
+            navigate.push('/auth/login?reason=unauthorized');
         }
 
     }

@@ -1,4 +1,4 @@
-import { Loader2Icon } from "lucide-react";
+import { Spinner } from "@/components/ui/spinner";
 import React from "react";
 
 export default function Loading() {
@@ -13,7 +13,7 @@ export default function Loading() {
 
         {/* Loading Indicator */}
         <div className="flex flex-col items-center gap-2">
-          <Loader2Icon className="size-8 md:size-10 text-primary animate-spin" />
+          <Spinner className="size-8 md:size-10 text-primary animate-spin" />
           <p className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-muted-foreground animate-pulse">
             Loading Experience
           </p>

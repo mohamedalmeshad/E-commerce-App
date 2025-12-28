@@ -36,8 +36,7 @@ export default function AddToWishList({ productId }: { productId: string }) {
             }
         } catch (error) {
             console.log(error);
-            toast.error("You need to sign in first")
-            navigate.push('/auth/login');
+            navigate.push('/auth/login?reason=unauthorized');
         }
     }
     return (

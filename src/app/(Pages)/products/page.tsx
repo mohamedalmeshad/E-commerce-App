@@ -13,6 +13,14 @@ export default async function Products() {
     console.error('Error fetching products:', error);
   }
 
+  if (!products) {
+    return (
+      <div className="container mx-auto px-4 py-20 text-center">
+        <p className="text-destructive font-black uppercase tracking-widest bg-destructive/5 py-4 rounded-2xl border border-destructive/10">Failed to load sector products.</p>
+      </div>
+    );
+  }
+
   return (
     <div className='container mx-auto px-4 py-16 sm:px-6 lg:px-8'>
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">

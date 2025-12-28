@@ -66,6 +66,11 @@ export default async function ProductId({ params }: { params: Params }) {
                                 <Badge className="rounded-full px-4 py-1.5 bg-primary/5 text-primary border-primary/10 text-[10px] font-black uppercase tracking-widest">
                                     {product.category.name}
                                 </Badge>
+                                {product.subcategory[0] && (
+                                    <Badge className="rounded-full px-4 py-1.5 bg-muted text-muted-foreground border-muted-foreground/10 text-[10px] font-black uppercase tracking-widest">
+                                        {product.subcategory[0].name}
+                                    </Badge>
+                                )}
                                 <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Serial: {product._id.slice(-8).toUpperCase()}</span>
                             </div>
 

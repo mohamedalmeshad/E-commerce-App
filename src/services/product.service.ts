@@ -31,4 +31,19 @@ export const productService = {
         const response = await fetch(ENDPOINTS.BRANDS.SINGLE(id));
         return response.json();
     },
+
+    async getSubcategoriesByCategoryId(categoryId: string) {
+        const response = await fetch(ENDPOINTS.CATEGORIES.SUBCATEGORIES(categoryId));
+        return response.json();
+    },
+
+    async getAllSubcategories() {
+        const response = await fetch(ENDPOINTS.SUBCATEGORIES.BASE);
+        return response.json();
+    },
+
+    async getSubcategoryById(id: string) {
+        const response = await fetch(ENDPOINTS.SUBCATEGORIES.SINGLE(id));
+        return response.json();
+    },
 };

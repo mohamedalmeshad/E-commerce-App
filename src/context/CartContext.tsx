@@ -19,7 +19,7 @@ export const CartContext = createContext<
     });
 
 export default function CartContextProvider({ children }: { children: ReactNode }) {
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [cartData, setCartData] = useState<CartResponse | null>(null);
     async function getCart() {
         setIsLoading(true);

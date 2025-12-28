@@ -18,7 +18,7 @@ export default function Loading() {
                 {Array.from({ length: 8 }).map((_, index) => (
                     <div key={index} className="flex flex-col gap-6 rounded-4xl border-2 border-primary/5 bg-white shadow-sm">
                         <div className="w-full h-full">
-                            <Skeleton className="w-full aspect-square rounded-3xl" />
+                            <Skeleton className="w-full aspect-square rounded-t-4xl" />
                             <div className="px-6 pb-6 flex flex-col gap-6">
 
                                 <div className="space-y-3 mt-2">

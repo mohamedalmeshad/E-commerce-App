@@ -19,7 +19,7 @@ export const WishlistContext = createContext<
     });
 
 export default function WishlistContextProvider({ children }: { children: ReactNode }) {
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [wishlistData, setWishlistData] = useState<WishListResponse | null>(null);
 
     async function getWishlist() {

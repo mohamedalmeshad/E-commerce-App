@@ -18,6 +18,10 @@ export const ENDPOINTS = {
         SINGLE: (id: string) => `${API_BASE_URL}/categories/${id}`,
         SUBCATEGORIES: (id: string) => `${API_BASE_URL}/categories/${id}/subcategories`,
     },
+    SUBCATEGORIES: {
+        BASE: `${API_BASE_URL}/subcategories`,
+        SINGLE: (id: string) => `${API_BASE_URL}/subcategories/${id}`,
+    },
     BRANDS: {
         BASE: `${API_BASE_URL}/brands`,
         SINGLE: (id: string) => `${API_BASE_URL}/brands/${id}`,

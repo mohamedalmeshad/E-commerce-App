@@ -126,7 +126,7 @@ export default function Home() {
 
           <div className="pt-8">
             <Link href="/products">
-              <Button variant="outline" className="cursor-pointer h-16 px-16 rounded-full text-sm font-black uppercase tracking-[0.2em] border-primary/10 hover:bg-primary hover:text-white transition-all duration-300">
+              <Button variant="outline" className="cursor-pointer h-14 md:h-16 px-12 md:px-16 rounded-full text-xs md:text-sm font-black uppercase tracking-[0.15em] md:tracking-[0.2em] border-primary/10 hover:bg-primary hover:text-white transition-all duration-300">
                 View Entire Collection
               </Button>
             </Link>

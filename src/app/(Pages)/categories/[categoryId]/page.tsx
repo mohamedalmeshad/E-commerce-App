@@ -1,6 +1,7 @@
 import React from 'react';
 import { ProductI, CategoryI } from '@/interfaces';
 import ProductCard from '@/components/ProductCard/ProductCard';
+import SubcategoryList from '@/components/SubcategoryList/SubcategoryList';
 import { Params } from 'next/dist/server/request/params';
 import Link from 'next/link';
 import { ArrowLeftIcon } from 'lucide-react';
@@ -47,6 +48,10 @@ export default async function CategoryProducts({ params }: { params: Params }) {
                         Explore our curated series of items within the <span className="text-foreground font-bold">{category?.name}</span> sector matrix.
                     </p>
                 </div>
+            </div>
+
+            <div className="mb-12">
+                <SubcategoryList categoryId={categoryId} categoryName={category?.name || 'Category'} />
             </div>
 
             {products && products.length > 0 ? (

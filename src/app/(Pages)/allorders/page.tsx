@@ -60,23 +60,23 @@ export default async function AllOrdersPage() {
             ))}
           </div>
         ) : (
-          <div className="relative group max-w-2xl mx-auto">
-            <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent rounded-[4rem] -z-10" />
-            <div className="flex flex-col items-center justify-center py-24 text-center bg-white/30 backdrop-blur-xl rounded-[3.5rem] border-2 border-dashed border-primary/10 hover:border-primary/20 transition-all duration-700">
-              <div className="bg-background p-10 rounded-[2.5rem] shadow-2xl shadow-primary/5 mb-8 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-700">
-                <ShoppingBasketIcon className="size-20 text-muted-foreground opacity-10" />
-              </div>
-              <h2 className="text-3xl font-black mb-4 text-foreground tracking-tighter">Your archive is vacant.</h2>
-              <p className="text-muted-foreground text-lg max-w-sm mx-auto mb-12 leading-relaxed px-4">
-                The grand catalog of your orders awaits its first entry. Discover and acquire your first blueprint today.
-              </p>
-              <Link href={'/products'}>
-                <Button size="lg" className="rounded-2xl px-12 h-16 font-black text-xs uppercase tracking-widest shadow-2xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer">
-                  Explore Blueprints
-                  <ArrowRightIcon className="size-4 ml-3" />
-                </Button>
-              </Link>
+          <div className="flex flex-col items-center justify-center py-24 text-center bg-muted/30 rounded-[3rem] border-2 border-dashed border-muted-foreground/10 group hover:border-primary/20 transition-all duration-500">
+            <div className="bg-background p-10 rounded-[2.5rem] shadow-xl mb-8 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-700">
+              <PackageIcon className="size-20 text-muted-foreground opacity-10" />
             </div>
+            <h2 className="text-3xl font-black mb-4 text-foreground tracking-tighter">No orders found...</h2>
+            <p className="text-muted-foreground text-lg max-w-sm mx-auto mb-12 leading-relaxed px-4">
+              The grand catalog of your orders awaits its first entry. Discover and acquire your first blueprint today.
+            </p>
+            <Button
+              asChild
+              size="lg"
+              className="rounded-2xl px-12 h-16 font-black text-sm uppercase tracking-widest shadow-2xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
+            >
+              <Link href={'/products'}>
+                Explore Blueprints
+              </Link>
+            </Button>
           </div>
         )}
       </div>
