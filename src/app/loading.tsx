@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Loading() {
   return (
-    <div className="fixed inset-0 flex flex-col items-center justify-center bg-white/90 backdrop-blur-3xl z-[100]">
+    <div className="fixed inset-0 flex flex-col items-center justify-center bg-white/90 backdrop-blur-3xl z-100">
       <div className="flex flex-col items-center gap-6 animate-in fade-in zoom-in duration-500">
 
         {/* Brand Logo */}
