@@ -3,9 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { getAllSubcategoriesAction } from '@/actions/product.actions';
 import { CategoryI } from '@/interfaces';
-import { cn } from '@/lib/utils';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 
 export default function AllSubcategories() {
