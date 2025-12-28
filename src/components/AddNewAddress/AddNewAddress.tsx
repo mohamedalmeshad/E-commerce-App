@@ -81,8 +81,8 @@ export default function AddNewAddress({ onClick, className }: AddNewAddressProps
                     Add New Address
                 </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden border-none rounded-4xl shadow-2xl">
-                <div className="bg-linear-to-b from-primary/10 to-transparent p-8 pb-4">
+            <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden border-none rounded-4xl shadow-2xl max-h-[90vh] flex flex-col">
+                <div className="bg-linear-to-b from-primary/10 to-transparent p-8 pb-4 shrink-0">
                     <DialogHeader>
                         <div className="flex items-center gap-3 mb-2">
                             <div className="size-10 rounded-2xl bg-primary/20 flex items-center justify-center text-primary">
@@ -98,8 +98,8 @@ export default function AddNewAddress({ onClick, className }: AddNewAddressProps
                     </DialogHeader>
                 </div>
 
-                <form onSubmit={form.handleSubmit(onSubmit)}>
-                    <div className="px-8 pb-8 pt-4 space-y-5">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col flex-1 min-h-0">
+                    <div className="px-8 pb-8 pt-4 space-y-5 flex-1 overflow-y-auto custom-scrollbar">
                         {/* Label Quick Select */}
                         <div className="space-y-2">
                             <FieldLabel className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Quick Label</FieldLabel>
@@ -198,7 +198,7 @@ export default function AddNewAddress({ onClick, className }: AddNewAddressProps
                         />
                     </div>
 
-                    <DialogFooter className="bg-muted/30 p-8 flex justify-end border-t border-muted-foreground/5 items-center">
+                    <DialogFooter className="bg-muted/30 p-8 flex justify-end border-t border-muted-foreground/5 items-center shrink-0">
                         <Button
                             type="submit"
                             disabled={isSubmitting}
