@@ -70,8 +70,8 @@ export default function CheckOut({ cartId, removeCart }: { cartId: string | unde
             try {
                 const data = await createCashOrderAction(cartId!, shippingAddress);
                 if (data.status === 'success') {
-                    await removeCart();
                     router.push('/allorders');
+                    await removeCart();
                 }
             } finally {
                 setIsLoadingCash(false);
