@@ -6,8 +6,18 @@ import { orderService } from "@/services/order.service";
 
 export async function createCheckoutSessionAction(cartId: string, shippingAddress: ShippingAddress): Promise<CreditCardResponse> {
     const token = await getUserToken();
-    const baseUrl = process.env.NEXT_URL;
-    const data = await orderService.createCheckoutSession(cartId, shippingAddress, token, baseUrl!);
+
+    // Determine base URL: specific NEXT_URL -> Vercel Deployment URL -> Localhost fallback
+    let baseUrl = process.env.NEXT_URL;
+    if (!baseUrl) {
+        if (process.env.VERCEL_URL) {
+            baseUrl = `https://${process.env.VERCEL_URL}`;
+        } else {
+            baseUrl = 'http://localhost:3000';
+        }
+    }
+
+    const data = await orderService.createCheckoutSession(cartId, shippingAddress, token, baseUrl);
     return data;
 }
 
