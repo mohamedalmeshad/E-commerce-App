@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,11 @@ import FeaturedProductsSkeleton from "@/components/FeaturedProducts/FeaturedProd
 import { Suspense } from "react";
 import { ArrowRightIcon, ShieldCheckIcon, ZapIcon, GlobeIcon } from 'lucide-react';
 import heroImage from "../../public/premium_hero_fashion_1766613986110.jpg"
+
+export const metadata: Metadata = {
+  title: "Home - Premium Fashion & Accessories",
+  description: "Explore the latest trends in premium fashion and accessories at SHOP.CO. Find products that match your style.",
+};
 
 export default function Home() {
   return (

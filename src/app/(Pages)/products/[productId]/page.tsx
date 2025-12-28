@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import { Params } from 'next/dist/server/request/params'
 import React from 'react'
 
@@ -9,6 +10,24 @@ import AddToCart from '@/components/AddToCart/AddToCart';
 import { ShieldCheckIcon, TruckIcon, RefreshCcwIcon, ZapIcon } from 'lucide-react';
 import { getProductByIdAction } from '@/actions/product.actions';
 import { notFound } from 'next/navigation';
+
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+    const { productId } = await params;
+    if (!productId || typeof productId !== 'string') return { title: 'Product' };
+
+    try {
+        const { data: product } = await getProductByIdAction(productId);
+        return {
+            title: product?.title || 'Product',
+            description: product?.description?.slice(0, 160) || 'View product details at SHOP.CO',
+            openGraph: {
+                images: product?.imageCover ? [product.imageCover] : [],
+            },
+        };
+    } catch (error) {
+        return { title: 'Product' };
+    }
+}
 
 export default async function ProductId({ params }: { params: Params }) {
     const { productId } = await params;

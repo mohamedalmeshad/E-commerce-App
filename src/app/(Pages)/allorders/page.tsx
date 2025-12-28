@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import React from 'react';
 import { OrderI } from '@/interfaces/order';
 import { PackageIcon, HistoryIcon, ShoppingBasketIcon, ArrowRightIcon } from 'lucide-react';
@@ -5,6 +6,11 @@ import OrderCard from '@/components/OrderCard/OrderCard';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { getUserOrdersAction } from '@/actions/order.actions';
+
+export const metadata: Metadata = {
+  title: "Order History",
+  description: "View your order history and track your shipments at SHOP.CO.",
+};
 
 export const dynamic = 'force-dynamic';
 

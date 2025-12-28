@@ -1,9 +1,15 @@
+import { Metadata } from "next";
 import { CategoryI } from "@/interfaces";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { getCategoriesAction } from "@/actions/product.actions";
 import AllSubcategories from "@/components/SubcategoryList/AllSubcategories";
+
+export const metadata: Metadata = {
+  title: "Categories",
+  description: "Explore our wide range of product categories at SHOP.CO.",
+};
 
 export default async function Categories() {
   let data: CategoryI[] = [];

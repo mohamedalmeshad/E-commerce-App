@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import React from 'react';
 import { ProductI, CategoryI } from '@/interfaces';
 import ProductCard from '@/components/ProductCard/ProductCard';
@@ -7,6 +8,21 @@ import Link from 'next/link';
 import { ArrowLeftIcon } from 'lucide-react';
 import { getCategoryByIdAction, getProductsAction } from '@/actions/product.actions';
 import { notFound } from 'next/navigation';
+
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+    const { categoryId } = await params;
+    if (!categoryId || typeof categoryId !== 'string') return { title: 'Category' };
+
+    try {
+        const { data: category } = await getCategoryByIdAction(categoryId);
+        return {
+            title: category?.name || 'Category',
+            description: `Browse the best products in the ${category?.name} category at SHOP.CO.`,
+        };
+    } catch (error) {
+        return { title: 'Category' };
+    }
+}
 
 export default async function CategoryProducts({ params }: { params: Params }) {
     const { categoryId } = await params;

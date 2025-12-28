@@ -1,8 +1,14 @@
+import { Metadata } from "next";
 import { BrandI } from "@/interfaces";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { getBrandsAction } from "@/actions/product.actions";
+
+export const metadata: Metadata = {
+  title: "Brands",
+  description: "Shop from our wide selection of certified global brands at SHOP.CO.",
+};
 
 export default async function Brands() {
   let data: BrandI[] = [];

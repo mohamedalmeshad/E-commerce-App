@@ -1,7 +1,13 @@
+import { Metadata } from 'next';
 import { ProductI } from '@/interfaces';
 import React from 'react'
 import ProductCard from '@/components/ProductCard/ProductCard';
 import { getProductsAction } from '@/actions/product.actions';
+
+export const metadata: Metadata = {
+  title: "Products",
+  description: "Browse our complete collection of premium products at SHOP.CO.",
+};
 
 export default async function Products() {
   let products: ProductI[] = [];

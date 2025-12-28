@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import React from 'react';
 import { ProductI, CategoryI } from '@/interfaces';
 import ProductCard from '@/components/ProductCard/ProductCard';
@@ -6,6 +7,20 @@ import Link from 'next/link';
 import { ArrowLeftIcon } from 'lucide-react';
 import { getSubcategoryByIdAction, getProductsAction } from '@/actions/product.actions';
 import { notFound } from 'next/navigation';
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+    const { subcategoryId } = await params;
+    if (!subcategoryId || typeof subcategoryId !== 'string') return { title: 'Subcategory' };
+
+    try {
+        const { data: subcategory } = await getSubcategoryByIdAction(subcategoryId);
+        return {
+            title: subcategory?.name || 'Subcategory',
+            description: `Browse the best products in the ${subcategory?.name} subcategory at SHOP.CO.`,
+        };
+    } catch (error) {
+        return { title: 'Subcategory' };
+    }
+}
 
 export default async function SubcategoryProducts({ params, searchParams }: { params: Params, searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
     const { subcategoryId } = await params;

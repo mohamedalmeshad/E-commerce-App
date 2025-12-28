@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import React from 'react';
 import { ProductI, BrandI } from '@/interfaces';
 import ProductCard from '@/components/ProductCard/ProductCard';
@@ -6,6 +7,20 @@ import Link from 'next/link';
 import { ArrowLeftIcon } from 'lucide-react';
 import { getBrandByIdAction, getProductsAction } from '@/actions/product.actions';
 import { notFound } from 'next/navigation';
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+    const { brandId } = await params;
+    if (!brandId || typeof brandId !== 'string') return { title: 'Brand' };
+
+    try {
+        const { data: brand } = await getBrandByIdAction(brandId);
+        return {
+            title: brand?.name || 'Brand',
+            description: `Explore the premium collection of products by ${brand?.name} at SHOP.CO.`,
+        };
+    } catch (error) {
+        return { title: 'Brand' };
+    }
+}
 
 export default async function BrandProducts({ params }: { params: Params }) {
     const { brandId } = await params;
